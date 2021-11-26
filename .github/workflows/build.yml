@@ -1,0 +1,16 @@
+name: Build project
+on: push
+
+jobs:
+  build-project:
+    name: build the project
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: Setup Java
+        uses: actions/setup-java@v1
+        with:
+          java-version: 17
+      - run: ./gradlew build
+
